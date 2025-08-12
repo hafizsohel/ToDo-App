@@ -7,6 +7,7 @@ plugins {
 
     id("com.google.dagger.hilt.android") version "2.57"
     id("kotlin-kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -73,6 +74,12 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.57")
     kapt ("com.google.dagger:hilt-compiler:2.57")
 
-    //implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0")
-
+    val room_version = "2.7.2"
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.2")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.8.3")
+    implementation ("androidx.compose.runtime:runtime:1.8.3")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.9.2")
 }
